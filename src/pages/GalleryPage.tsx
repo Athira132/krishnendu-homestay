@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, Eye, Plus } from 'lucide-react';
+import { Camera, Eye } from 'lucide-react';
 import { GALLERY_ITEMS } from '../data/gallery';
 import { SEOHead } from '../components/common/SEOHead';
 import { LightboxModal } from '../components/common/LightboxModal';
@@ -135,19 +135,6 @@ export const GalleryPage: React.FC = () => {
               </div>
             </div>
           ))}
-
-          {/* Placeholder card for future resort photos */}
-          <div className="bg-[#FAF7F2] rounded-3xl border-2 border-dashed border-[#D4A373]/60 p-8 flex flex-col items-center justify-center text-center min-h-[280px]">
-            <div className="w-12 h-12 rounded-2xl bg-white text-emerald-700 shadow-sm flex items-center justify-center mb-3">
-              <Plus className="w-6 h-6" />
-            </div>
-            <h4 className="font-serif text-lg font-bold text-forest-950 mb-1">
-              Future Property Photos
-            </h4>
-            <p className="text-xs text-stone-500 max-w-xs leading-relaxed">
-              Additional resort and room photographs will be added here as our property portfolio expands.
-            </p>
-          </div>
         </div>
       </div>
 

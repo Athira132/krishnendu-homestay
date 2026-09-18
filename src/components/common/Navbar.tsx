@@ -32,9 +32,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
     { name: 'Home', path: '/' },
     { name: 'Our Properties', path: '/properties' },
     {
-      name: 'Explore Guruvayur',
+      name: 'Discover Guruvayur',
       subtitle: 'Sacred Places & Local Experiences',
-      path: '/explore-guruvayur',
+      path: '/discover-guruvayur',
     },
     { name: 'About Us', path: '/about' },
     { name: 'Gallery', path: '/gallery' },
@@ -46,7 +46,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
     return location.pathname.startsWith(path);
   };
 
-  const isHeroPage = location.pathname === '/' || location.pathname === '/about' || location.pathname === '/explore-guruvayur';
+  const isHeroPage =
+    location.pathname === '/' ||
+    location.pathname === '/about' ||
+    location.pathname === '/discover-guruvayur' ||
+    location.pathname === '/explore-guruvayur';
 
   const navBackgroundClass = !isScrolled && isHeroPage
     ? 'bg-gradient-to-b from-black/70 via-black/40 to-transparent text-white'
@@ -69,16 +73,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 group focus:outline-none">
-            <div className="w-12 h-12 rounded-xl bg-white p-1.5 shadow-sm border border-[#EADBCE] flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105">
-              <img
-                src={BRAND.logoUrl}
-                alt={BRAND.name}
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-            </div>
+            <img
+              src={BRAND.logoUrl}
+              alt={BRAND.name}
+              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+              onError={(e) => {
+                (e.target as HTMLElement).style.display = 'none';
+              }}
+            />
             <div className="flex flex-col">
               <span className={`font-serif text-lg sm:text-xl font-bold tracking-wide transition-colors ${!isScrolled && isHeroPage ? 'text-white' : 'text-forest-900'}`}>
                 {BRAND.name}

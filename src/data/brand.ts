@@ -24,6 +24,7 @@ export const BRAND: BrandConfig = {
   ],
   email: 'Krishnendhuhomestay@gmail.com',
   vkardUrl: 'https://www.vkard.pro/krishnendu-homestay',
+  googleMapsUrl: 'https://maps.google.com/?q=North+Nada+Guruvayur+Kerala',
   logoUrl: '/images/logo.png',
   copyrightYear: 2026,
 };

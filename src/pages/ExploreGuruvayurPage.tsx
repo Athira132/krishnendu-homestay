@@ -7,10 +7,8 @@ import {
   MessageCircle,
   Train,
   Bus,
-  Plane,
   Sparkles,
   Info,
-  Clock,
   MapPin,
 } from 'lucide-react';
 import { ATTRACTIONS, TRANSIT_HUBS } from '../data/attractions';
@@ -27,12 +25,12 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
   return (
     <div className="pt-20 pb-20 bg-ivory min-h-screen">
       <SEOHead
-        title="Explore Guruvayur | Sacred Places & Local Experiences"
+        title="Discover Guruvayur | Sacred Places & Local Experiences"
         description="Discover venerated temples including Guruvayur Sri Krishna Temple, Mammiyoor Mahadeva Temple, Punnathur Kotta, and Chavakkad Beach during your stay at Krishnendu Homestay."
       />
 
       {/* Destination Hero Banner */}
-      <div className="relative min-h-[58vh] sm:min-h-[68vh] flex items-center justify-center bg-forest-950 text-white overflow-hidden">
+      <div className="relative min-h-[50vh] sm:min-h-[58vh] flex items-center justify-center bg-forest-950 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-guruvayur.png"
@@ -46,17 +44,17 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/70 to-black/50" />
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-800/80 border border-emerald-600/40 text-xs sm:text-sm font-semibold tracking-widest text-emerald-200 uppercase mb-4 backdrop-blur-md">
             <Compass className="w-3.5 h-3.5 text-gold-400" />
             <span>SACRED PLACES, SPIRITUAL JOURNEYS & LOCAL EXPERIENCES</span>
           </div>
 
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 drop-shadow-md">
-            Discover the Spiritual Charm of Guruvayur
+            Discover Guruvayur
           </h1>
 
-          <p className="text-base sm:text-xl text-stone-200 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-base sm:text-lg text-stone-200 max-w-3xl mx-auto leading-relaxed mb-8">
             Explore sacred temples, cultural landmarks, and memorable experiences during your stay at Krishnendu Homestay.
           </p>
 
@@ -73,7 +71,7 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
               to="/properties"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm tracking-wide backdrop-blur-md border border-white/25 transition-all"
             >
-              <span>Find Your Stay</span>
+              <span>Explore Properties</span>
             </Link>
           </div>
         </div>
@@ -126,17 +124,8 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
           <SectionHeading
             eyebrow="DESTINATION GUIDE"
             title="Temples & Sacred Places Nearby"
-            subtitle="Plan your itinerary around Guruvayur with verified local insights and direct route directions."
+            subtitle="Discover Guruvayur’s sacred landmarks and local attractions during your stay."
           />
-
-          {/* Distance Transparency Notice */}
-          <div className="mb-10 p-4 rounded-2xl bg-amber-50/90 border border-amber-200/90 max-w-3xl mx-auto flex items-start gap-3 text-xs text-amber-900 leading-relaxed">
-            <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
-            <div>
-              <strong>Distance & Travel Time Notice: </strong>
-              All approximate travel times and road distances shown are indicative driving estimates from North Nada, Guruvayur. Precise door-to-door distances will be confirmed based on homestay property location coordinates. Not all sites are within walking distance; local auto-rickshaws and taxis are readily accessible.
-            </div>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {ATTRACTIONS.map((item) => (
@@ -180,14 +169,9 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
                       ))}
                     </div>
 
-                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/60 text-xs text-stone-500 space-y-1">
-                      <div className="flex items-center gap-1.5 text-forest-900 font-medium">
-                        <Clock className="w-3.5 h-3.5 text-emerald-700" />
-                        <span>{item.approxDriveTime}</span>
-                      </div>
-                      <div className="text-[11px] text-stone-400">
-                        {item.distanceNotice}
-                      </div>
+                    <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/60 text-xs text-stone-500 flex items-center gap-2">
+                      <MapPin className="w-3.5 h-3.5 text-emerald-700 flex-shrink-0" />
+                      <span className="font-medium text-forest-900">Distance to be confirmed</span>
                     </div>
                   </div>
                 </div>
@@ -215,10 +199,10 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
           <SectionHeading
             eyebrow="TRANSIT & CONNECTIVITY"
             title="Getting Here: Arriving in Guruvayur"
-            subtitle="Accessible transit connections by train, state bus, and international air travel."
+            subtitle="Accessible transit connections by train, state RTC bus, and local private buses."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TRANSIT_HUBS.map((hub) => (
               <div
                 key={hub.id}
@@ -228,7 +212,6 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
                   <div className="w-10 h-10 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center mb-4">
                     {hub.type === 'railway' && <Train className="w-5 h-5" />}
                     {hub.type === 'bus' && <Bus className="w-5 h-5" />}
-                    {hub.type === 'airport' && <Plane className="w-5 h-5" />}
                   </div>
 
                   <h3 className="font-serif text-lg font-bold text-forest-950 mb-2">
@@ -236,16 +219,12 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
                   </h3>
 
                   <div className="text-xs text-emerald-800 font-semibold mb-2">
-                    {hub.approxTravelTime}
+                    Distance to be confirmed
                   </div>
 
                   <p className="text-xs text-stone-600 leading-relaxed mb-4">
                     {hub.tips}
                   </p>
-
-                  <div className="text-[11px] text-stone-400 italic">
-                    {hub.distanceNotice}
-                  </div>
                 </div>
 
                 <div className="mt-5 pt-3 border-t border-stone-100">

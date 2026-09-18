@@ -121,17 +121,15 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
         </div>
       )}
 
-      {/* Main Floating Trigger Button */}
+      {/* Main Floating Trigger Button (Round, Icon Only) */}
       <button
         type="button"
         onClick={toggleOpen}
-        className="flex items-center gap-2.5 px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group border-2 border-white focus:outline-none cursor-pointer"
-        aria-label="Open WhatsApp Chat"
+        className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 group border-2 border-white focus:outline-none cursor-pointer"
+        aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp"
       >
-        <MessageCircle className="w-6 h-6 fill-current group-hover:rotate-12 transition-transform" />
-        <span className="text-sm font-semibold tracking-wide hidden sm:inline">
-          WhatsApp Us
-        </span>
+        <MessageCircle className="w-7 h-7 fill-current group-hover:rotate-12 transition-transform" />
       </button>
     </div>
   );

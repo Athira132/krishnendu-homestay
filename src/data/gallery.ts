@@ -47,15 +47,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     featuredOnHome: true,
   },
   {
-    id: 'gal-10',
-    src: '/images/gallery/gal-10.jpg',
-    fallbackSrc: 'https://i.ibb.co/nN0nYrWh/282ae726-f7ec-4110-b2d6-df1c05275f86.jpg',
-    alt: 'Clean Bedroom Setup with Fresh Towels and Amenities',
-    title: 'Clean Bedding & Fresh Towels',
-    category: 'rooms',
-    featuredOnHome: false,
-  },
-  {
     id: 'gal-5',
     src: '/images/gallery/gal-5.jpg',
     fallbackSrc: 'https://i.ibb.co/7d5DHTfG/d8b467c2-e3fb-4684-a503-529dce1972a0.jpg',

@@ -23,7 +23,6 @@ export const PROPERTIES: Property[] = [
       '/images/gallery/gal-4.jpg',
       '/images/gallery/gal-9.jpg',
       '/images/gallery/gal-5.jpg',
-      '/images/gallery/gal-10.jpg',
       '/images/gallery/gal-7.jpg',
       '/images/gallery/gal-8.jpg',
       '/images/gallery/gal-1.jpg',

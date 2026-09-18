@@ -16,17 +16,15 @@ export const Footer: React.FC<FooterProps> = () => {
 
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Left Column: Brand & Heritage */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-5 space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white p-1.5 shadow flex items-center justify-center">
-                <img
-                  src={BRAND.logoUrl}
-                  alt={BRAND.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <img
+                src={BRAND.logoUrl}
+                alt={BRAND.name}
+                className="h-12 sm:h-14 w-auto object-contain"
+              />
               <div>
                 <h3 className="font-serif text-xl font-bold tracking-wide text-white">
                   {BRAND.name}
@@ -37,13 +35,20 @@ export const Footer: React.FC<FooterProps> = () => {
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed text-stone-300">
+            <p className="text-sm leading-relaxed text-stone-300 max-w-md">
               {BRAND.shortDescription}
             </p>
 
             <div className="flex items-start gap-2.5 text-xs text-stone-400 pt-1">
               <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-              <span>{BRAND.fullAddress}</span>
+              <a
+                href={BRAND.googleMapsUrl || 'https://maps.google.com/?q=North+Nada+Guruvayur+Kerala'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                {BRAND.fullAddress}
+              </a>
             </div>
 
             {/* Digital Business Card Link */}
@@ -78,8 +83,8 @@ export const Footer: React.FC<FooterProps> = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/explore-guruvayur" className="text-stone-300 hover:text-emerald-300 transition-colors">
-                  Explore Guruvayur
+                <Link to="/discover-guruvayur" className="text-stone-300 hover:text-emerald-300 transition-colors">
+                  Discover Guruvayur
                 </Link>
               </li>
               <li>
@@ -100,54 +105,21 @@ export const Footer: React.FC<FooterProps> = () => {
             </ul>
           </div>
 
-          {/* Middle-Right: Stay Highlights */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-serif text-lg font-semibold text-white tracking-wide border-b border-emerald-900/60 pb-2">
-              Stay Highlights
-            </h4>
-            <ul className="space-y-2 text-xs text-stone-300">
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>North Nada Location</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Temple Darshan Ease</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Clean AC Rooms</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Family Friendly</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Traditional Living Hall</span>
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Multi-Property Portfolio</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Right Column: Direct Contact & Enquiries */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             <h4 className="font-serif text-lg font-semibold text-white tracking-wide border-b border-emerald-900/60 pb-2">
               Direct Contact
             </h4>
-            <div className="space-y-3 text-xs">
+            <div className="space-y-3.5 text-xs">
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="text-stone-400 font-medium">Call Us:</div>
                   <div className="flex flex-col gap-0.5 mt-0.5">
-                    <a href={`tel:${BRAND.phones[0]}`} className="hover:text-white transition-colors">
+                    <a href={`tel:${BRAND.phones[0]}`} className="hover:text-white transition-colors text-sm font-medium">
                       +91 {BRAND.phones[0]}
                     </a>
-                    <a href={`tel:${BRAND.phones[1]}`} className="hover:text-white transition-colors">
+                    <a href={`tel:${BRAND.phones[1]}`} className="hover:text-white transition-colors text-sm font-medium">
                       +91 {BRAND.phones[1]}
                     </a>
                   </div>
@@ -167,7 +139,7 @@ export const Footer: React.FC<FooterProps> = () => {
                         rel="noopener noreferrer"
                         className="hover:text-emerald-300 transition-colors flex items-center gap-1.5"
                       >
-                        <span>{wa.label}:</span>
+                        <span className="font-medium text-stone-300">{wa.label}:</span>
                         <span>{wa.display}</span>
                       </a>
                     ))}

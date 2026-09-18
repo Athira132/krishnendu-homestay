@@ -6,7 +6,7 @@ import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
 import { HomePage } from './pages/HomePage';
 import { PropertiesPage } from './pages/PropertiesPage';
 import { PropertyDetailPage } from './pages/PropertyDetailPage';
-import { ExploreGuruvayurPage } from './pages/ExploreGuruvayurPage';
+import { DiscoverGuruvayurPage } from './pages/DiscoverGuruvayurPage';
 import { AboutPage } from './pages/AboutPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
@@ -63,8 +63,12 @@ export function App() {
               element={<PropertyDetailPage onOpenWhatsApp={handleOpenWhatsApp} />}
             />
             <Route
+              path="/discover-guruvayur"
+              element={<DiscoverGuruvayurPage onOpenWhatsApp={handleOpenWhatsApp} />}
+            />
+            <Route
               path="/explore-guruvayur"
-              element={<ExploreGuruvayurPage onOpenWhatsApp={handleOpenWhatsApp} />}
+              element={<DiscoverGuruvayurPage onOpenWhatsApp={handleOpenWhatsApp} />}
             />
             <Route
               path="/about"

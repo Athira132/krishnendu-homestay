@@ -79,6 +79,7 @@ export interface BrandConfig {
   }[];
   email: string;
   vkardUrl: string;
+  googleMapsUrl?: string;
   logoUrl: string;
   copyrightYear: number;
 }
