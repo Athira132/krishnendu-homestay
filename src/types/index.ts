@@ -9,6 +9,7 @@ export interface Property {
   fullDescription: string[];
   heroImage: string;
   galleryImages: string[];
+  logoImage?: string;
   isFeatured?: boolean;
   isComingSoon?: boolean;
   statusBadge?: string;

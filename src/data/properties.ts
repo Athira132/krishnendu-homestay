@@ -173,6 +173,7 @@ export const PROPERTIES: Property[] = [
       '/images/properties/krishnendhu-residency/residency-11.jpg',
       '/images/properties/krishnendhu-residency/residency-12.jpg',
     ],
+    logoImage: '/images/logo-residency.png',
     isFeatured: false,
     isComingSoon: false,
     statusBadge: 'Direct Booking Available',

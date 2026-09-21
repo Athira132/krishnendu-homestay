@@ -145,6 +145,15 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
+              {property.logoImage && (
+                <div className="mb-3.5">
+                  <img
+                    src={property.logoImage}
+                    alt={`${property.name} Dedicated Logo`}
+                    className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm"
+                  />
+                </div>
+              )}
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className="px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-700 text-white shadow-sm">
                   {property.statusBadge || 'Direct Booking Available'}
