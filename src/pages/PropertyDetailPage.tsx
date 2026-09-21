@@ -104,7 +104,7 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
   };
 
   return (
-    <div className="pt-20 pb-20 bg-ivory min-h-screen">
+    <div className="pt-28 sm:pt-32 md:pt-36 pb-20 bg-ivory min-h-screen">
       <SEOHead
         title={propertySeoData.title}
         description={propertySeoData.description}
@@ -146,11 +146,11 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               {property.logoImage && (
-                <div className="mb-3.5">
+                <div className="mb-4">
                   <img
                     src={property.logoImage}
                     alt={`${property.name} Dedicated Logo`}
-                    className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm"
+                    className="h-16 sm:h-20 md:h-24 w-auto object-contain drop-shadow-md"
                   />
                 </div>
               )}

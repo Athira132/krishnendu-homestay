@@ -14,7 +14,7 @@ import { SectionHeading } from '../components/common/SectionHeading';
 
 export const ContactPage: React.FC = () => {
   return (
-    <div className="pt-24 pb-20 bg-ivory min-h-screen">
+    <div className="pt-32 sm:pt-36 md:pt-40 pb-20 bg-ivory min-h-screen">
       <SEOHead
         title="Contact & Room Enquiry | Guruvayur Homestay & Accommodation"
         description="Contact Krishnendu Homestay in Guruvayur for room bookings and enquiries. Direct WhatsApp chat, phone assistance, and directions to North Nada."

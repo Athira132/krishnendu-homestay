@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = () => {
                 <img
                   src={BRAND.logoUrl}
                   alt="Krishnendu Homestay Logo"
-                  className="h-12 sm:h-14 md:h-16 w-auto object-contain drop-shadow-sm"
+                  className="h-36 sm:h-44 md:h-48 w-auto object-contain drop-shadow-md"
                 />
               </Link>
             </div>

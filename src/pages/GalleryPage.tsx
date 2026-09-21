@@ -46,7 +46,7 @@ export const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 pb-20 bg-ivory min-h-screen">
+    <div className="pt-32 sm:pt-36 md:pt-40 pb-20 bg-ivory min-h-screen">
       <SEOHead
         title="Photo Gallery | Homestay Rooms & Facilities in Guruvayur"
         description="Browse authentic photographs of Krishnendu Homestay in Guruvayur: bedroom accommodations, spacious living hall, clean modern bathrooms, and gated grounds."

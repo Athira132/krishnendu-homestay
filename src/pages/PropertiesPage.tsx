@@ -11,7 +11,7 @@ interface PropertiesPageProps {
 
 export const PropertiesPage: React.FC<PropertiesPageProps> = ({ onOpenWhatsApp }) => {
   return (
-    <div className="pt-20 pb-20 bg-ivory min-h-screen">
+    <div className="pt-32 sm:pt-36 md:pt-40 pb-20 bg-ivory min-h-screen">
       <SEOHead
         title="Accommodations in Guruvayur | Homestay, Residency & Tourist Home"
         description="Find comfortable rooms and stay near Guruvayur Temple. Choose from KRISHNENDU HOMESTAY (North Nada), Krishnendhu Residency (South Nada), and Sivaranjini Tourist Home (East Nada)."

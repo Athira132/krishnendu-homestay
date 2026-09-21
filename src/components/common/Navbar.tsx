@@ -56,17 +56,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 ${navBackgroundClass}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
+        <div className="flex items-center justify-between h-28 sm:h-32 md:h-36 lg:h-40 transition-all duration-300">
           {/* Logo on the left - Links to Home */}
           <Link
             to="/"
-            className="flex items-center group focus:outline-none py-1.5"
+            className="flex items-center group focus:outline-none py-2"
             title="Guruvayur Homestay"
           >
             <img
               src={BRAND.logoUrl}
               alt="Guruvayur Homestay Logo"
-              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
+              className="h-24 sm:h-28 md:h-32 lg:h-36 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
@@ -91,10 +91,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none cursor-pointer"
+              className="p-2.5 rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </div>
         </div>
@@ -105,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 top-16 sm:top-20 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 top-28 sm:top-32 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
             onClick={() => setMobileMenuOpen(false)}
           />
           <div className="relative z-50 lg:hidden bg-forest-950/98 backdrop-blur-2xl text-white border-b border-emerald-900/40 shadow-2xl animate-in slide-in-from-top duration-200">
