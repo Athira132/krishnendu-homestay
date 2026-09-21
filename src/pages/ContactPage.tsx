@@ -16,8 +16,9 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="pt-24 pb-20 bg-ivory min-h-screen">
       <SEOHead
-        title="Contact & Location | Plan Your Stay"
-        description="Get in touch with Krishnendu Homestay in Guruvayur, Kerala. Direct contact numbers, WhatsApp chat, location map, and online enquiry form."
+        title="Contact & Room Enquiry | Guruvayur Homestay & Accommodation"
+        description="Contact Krishnendu Homestay in Guruvayur for room bookings and enquiries. Direct WhatsApp chat, phone assistance, and directions to North Nada."
+        canonicalPath="/contact"
       />
 
       {/* Hero Header */}
@@ -25,7 +26,7 @@ export const ContactPage: React.FC = () => {
         <div className="absolute inset-0 z-0 opacity-25">
           <img
             src="/images/hero-guruvayur.png"
-            alt="Guruvayur Homestay Surroundings"
+            alt="Guruvayur Homestay Surroundings in Kerala"
             className="w-full h-full object-cover"
           />
         </div>
@@ -36,7 +37,7 @@ export const ContactPage: React.FC = () => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">
-            Let's Plan Your Stay
+            Contact & Room Enquiry — Guruvayur
           </h1>
 
           <p className="text-base sm:text-lg text-stone-200 max-w-2xl mx-auto leading-relaxed">

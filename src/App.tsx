@@ -43,7 +43,7 @@ export function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-ivory text-charcoal-900 font-sans selection:bg-emerald-800 selection:text-white">
+      <div className="flex flex-col min-h-screen bg-ivory text-charcoal-900 font-sans selection:bg-emerald-800 selection:text-white overflow-x-hidden w-full relative">
         {/* Global Navigation Header */}
         <Navbar onOpenWhatsApp={() => handleOpenWhatsApp()} />
 

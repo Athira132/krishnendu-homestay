@@ -48,8 +48,9 @@ export const GalleryPage: React.FC = () => {
   return (
     <div className="pt-24 pb-20 bg-ivory min-h-screen">
       <SEOHead
-        title="Photo Gallery | Krishnendu Homestay Guruvayur"
-        description="Browse authentic photographs of Krishnendu Homestay in Guruvayur. View our villa exterior, ornate gates, spacious living hall, clean air-conditioned bedrooms, and bathrooms."
+        title="Photo Gallery | Homestay Rooms & Facilities in Guruvayur"
+        description="Browse authentic photographs of Krishnendu Homestay in Guruvayur: bedroom accommodations, spacious living hall, clean modern bathrooms, and gated grounds."
+        canonicalPath="/gallery"
       />
 
       {/* Page Header */}
@@ -61,7 +62,7 @@ export const GalleryPage: React.FC = () => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">
-            Property Photo Gallery
+            Property Photo Gallery — Guruvayur
           </h1>
 
           <p className="text-base sm:text-lg text-stone-200 max-w-2xl mx-auto leading-relaxed">

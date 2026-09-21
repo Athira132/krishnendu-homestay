@@ -16,8 +16,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenWhatsApp }) => {
   return (
     <>
       <SEOHead
-        title="Your Peaceful Stay in Sacred Guruvayur"
-        description="Experience a peaceful and comfortable stay near the sacred Guruvayur Temple. Enjoy warm hospitality, clean rooms, and a homely atmosphere for a memorable visit."
+        title="Guruvayur Homestay | Rooms & Peaceful Accommodation Near Guruvayur Temple"
+        description="Looking for a peaceful homestay in Guruvayur? Krishnendu Homestay offers clean AC rooms, family accommodation, and warm Kerala hospitality near sacred Guruvayur Temple."
+        canonicalPath="/"
       />
 
       {/* Hero Banner with Guruvayur scenic visuals */}

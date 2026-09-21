@@ -54,32 +54,79 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
     setLightboxOpen(true);
   };
 
+  const propertySeoData = {
+    'krishnendu-homestay': {
+      title: 'KRISHNENDU HOMESTAY | Peaceful Homestay in North Nada, Guruvayur',
+      description:
+        'Book your peaceful stay at KRISHNENDU HOMESTAY in North Nada, Guruvayur. Clean AC rooms, traditional Kerala hospitality, and convenient temple darshan access.',
+      keywords:
+        'Guruvayur homestay, Homestay in Guruvayur, North Nada homestay, Stay near Guruvayur Temple, Rooms in Guruvayur, Krishnendu Homestay',
+      address: 'North Nada, Guruvayur, Thrissur District, Kerala 680101',
+    },
+    'krishnendhu-residency': {
+      title: 'Krishnendhu Residency | Rooms & Stay in South Nada, Guruvayur',
+      description:
+        'Stay at Krishnendhu Residency on Edappully Road, South Nada, Guruvayur. Comfortable rooms, peaceful pilgrimage environment, and easy temple access.',
+      keywords:
+        'Rooms in Guruvayur, Guruvayur accommodation, Krishnendhu Residency Guruvayur, South Nada stay, Edappully Road accommodation',
+      address: 'Edappully Road, South Nada, Guruvayur, Thrissur District, Kerala 680101',
+    },
+    'sivaranjini-tourist-home': {
+      title: 'Sivaranjini Tourist Home | Guruvayur Accommodation in East Nada',
+      description:
+        'Convenient accommodation in East Nada, Guruvayur at Sivaranjini Tourist Home. Located on Rugmini Reagency Road near transit hubs and temple entrance.',
+      keywords:
+        'Guruvayur tourist home, Guruvayur accommodation, East Nada stay, Sivaranjini Tourist Home, Rugmini Reagency Road Guruvayur',
+      address: 'Rugmini Reagency Road, East Nada, Guruvayur, Thrissur District, Kerala 680101',
+    },
+  }[property.id] || {
+    title: `${property.name} | Accommodation in Guruvayur`,
+    description: `${property.name} in Guruvayur, Kerala. ${property.shortDescription}`,
+    keywords: 'Guruvayur homestay, Guruvayur accommodation, Stay near Guruvayur Temple',
+    address: `${property.location}, Guruvayur, Kerala`,
+  };
+
+  const propertyStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'LodgingBusiness',
+    name: property.name,
+    description: property.shortDescription,
+    image: property.heroImage,
+    telephone: BRAND.phones.map((p) => `+91${p}`),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: propertySeoData.address,
+      addressLocality: 'Guruvayur',
+      addressRegion: 'Kerala',
+      postalCode: '680101',
+      addressCountry: 'IN',
+    },
+  };
+
   return (
     <div className="pt-20 pb-20 bg-ivory min-h-screen">
       <SEOHead
-        title={property.name}
-        description={`${property.name} in Guruvayur, Kerala. ${property.shortDescription}`}
+        title={propertySeoData.title}
+        description={propertySeoData.description}
+        keywords={propertySeoData.keywords}
+        canonicalPath={`/properties/${property.slug}`}
+        ogImage={property.heroImage}
+        structuredData={propertyStructuredData}
       />
 
-      {/* Compact Photographic Hero Banner (No Property Name Overlaid) */}
-      <div className="relative h-[36vh] sm:h-[42vh] flex items-end bg-forest-950 text-white overflow-hidden">
+      {/* Compact Photographic Hero Banner */}
+      <div className="relative h-[32vh] sm:h-[40vh] flex items-end bg-forest-950 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={property.heroImage}
-            alt={`${property.name} Exterior View`}
+            alt={`${property.name} Exterior View in Guruvayur`}
             className="w-full h-full object-cover"
             onError={(e) => {
               (e.target as HTMLImageElement).src =
                 'https://i.ibb.co/RGGM36Cm/905c3c9d-34ba-4172-96bd-c13d6149d598-1.jpg';
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/40 to-black/30" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs font-semibold tracking-wider text-emerald-200 uppercase">
-            <span>KRISHNENDU HOSPITALITY COLLECTION</span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/30 to-black/20" />
         </div>
       </div>
 

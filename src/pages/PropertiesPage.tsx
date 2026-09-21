@@ -13,8 +13,9 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ onOpenWhatsApp }
   return (
     <div className="pt-20 pb-20 bg-ivory min-h-screen">
       <SEOHead
-        title="Our Properties & Stays | Krishnendu Guruvayur"
-        description="Explore our three comfortable stay options in Guruvayur: KRISHNENDU HOMESTAY (North Nada), Krishnendhu Residency (South Nada), and Sivaranjini Tourist Home (East Nada)."
+        title="Accommodations in Guruvayur | Homestay, Residency & Tourist Home"
+        description="Find comfortable rooms and stay near Guruvayur Temple. Choose from KRISHNENDU HOMESTAY (North Nada), Krishnendhu Residency (South Nada), and Sivaranjini Tourist Home (East Nada)."
+        canonicalPath="/properties"
       />
 
       {/* Page Header with Atmospheric Background */}
@@ -22,7 +23,7 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ onOpenWhatsApp }
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-about.png"
-            alt="Krishnendu Homestay Accommodations"
+            alt="Guruvayur Homestay and Accommodations"
             className="w-full h-full object-cover"
             onError={(e) => {
               (e.target as HTMLImageElement).src =
@@ -38,7 +39,7 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({ onOpenWhatsApp }
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4 drop-shadow-md">
-            Find Your Peaceful Stay
+            Find Your Peaceful Stay in Guruvayur
           </h1>
 
           <p className="text-base sm:text-lg text-stone-200 max-w-2xl mx-auto leading-relaxed">

@@ -56,17 +56,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 ${navBackgroundClass}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-24">
-          {/* Logo on the left - Links to Home, No text beside it */}
+        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
+          {/* Logo on the left - Links to Home */}
           <Link
             to="/"
-            className="flex items-center group focus:outline-none py-2"
-            title="Krishnendu Homestay"
+            className="flex items-center group focus:outline-none py-1.5"
+            title="Guruvayur Homestay"
           >
             <img
               src={BRAND.logoUrl}
-              alt={BRAND.name}
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
+              alt="Guruvayur Homestay Logo"
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
@@ -91,10 +91,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none cursor-pointer"
+              className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -102,40 +102,48 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-forest-950/95 backdrop-blur-xl text-white border-b border-emerald-900/40 shadow-2xl animate-in slide-in-from-top duration-200">
-          <div className="px-5 pt-4 pb-7 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                  isActive(link.path)
-                    ? 'bg-emerald-900/40 text-emerald-300 font-semibold'
-                    : 'text-stone-200 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <span>{link.name}</span>
-                  <ArrowRight className="w-4 h-4 opacity-40" />
-                </div>
-              </Link>
-            ))}
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 top-16 sm:top-20 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          <div className="relative z-50 lg:hidden bg-forest-950/98 backdrop-blur-2xl text-white border-b border-emerald-900/40 shadow-2xl animate-in slide-in-from-top duration-200">
+            <div className="px-5 pt-3 pb-6 space-y-1.5 max-h-[calc(100vh-5rem)] overflow-y-auto">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                    isActive(link.path)
+                      ? 'bg-emerald-900/40 text-emerald-300 font-semibold'
+                      : 'text-stone-200 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span>{link.name}</span>
+                    <ArrowRight className="w-4 h-4 opacity-40" />
+                  </div>
+                </Link>
+              ))}
 
-            <div className="pt-4 border-t border-emerald-900/40">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenWhatsApp?.();
-                }}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Enquiry</span>
-              </button>
+              <div className="pt-3 border-t border-emerald-900/40">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenWhatsApp?.();
+                  }}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-semibold text-white transition-colors cursor-pointer min-h-[44px]"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp Enquiry</span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

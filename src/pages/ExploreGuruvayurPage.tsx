@@ -25,16 +25,17 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
   return (
     <div className="pt-20 pb-20 bg-ivory min-h-screen">
       <SEOHead
-        title="Discover Guruvayur | Sacred Places & Local Experiences"
-        description="Discover venerated temples including Guruvayur Sri Krishna Temple, Mammiyoor Mahadeva Temple, Punnathur Kotta, and Chavakkad Beach during your stay at Krishnendu Homestay."
+        title="Discover Guruvayur | Sacred Temples, Attractions & Travel Guide"
+        description="Plan your temple pilgrimage in Guruvayur: Guruvayur Sri Krishna Temple darshan, Mammiyoor Mahadeva Temple, Punnathur Kotta elephant sanctuary, and nearby travel attractions."
+        canonicalPath="/discover-guruvayur"
       />
 
       {/* Destination Hero Banner */}
-      <div className="relative min-h-[50vh] sm:min-h-[58vh] flex items-center justify-center bg-forest-950 text-white overflow-hidden">
+      <div className="relative min-h-[46vh] sm:min-h-[54vh] flex items-center justify-center bg-forest-950 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-guruvayur.png"
-            alt="Guruvayur Temple Surroundings"
+            alt="Guruvayur Temple Surroundings in Kerala"
             className="w-full h-full object-cover scale-105"
             onError={(e) => {
               (e.target as HTMLImageElement).src =
@@ -44,14 +45,14 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/70 to-black/50" />
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-800/80 border border-emerald-600/40 text-xs sm:text-sm font-semibold tracking-widest text-emerald-200 uppercase mb-4 backdrop-blur-md">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-12 sm:pb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-800/80 border border-emerald-600/40 text-xs font-semibold tracking-wider text-emerald-200 uppercase mb-4 backdrop-blur-md">
             <Compass className="w-3.5 h-3.5 text-gold-400" />
-            <span>SACRED PLACES, SPIRITUAL JOURNEYS & LOCAL EXPERIENCES</span>
+            <span>PILGRIMAGE & TRAVEL GUIDE</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 drop-shadow-md">
-            Discover Guruvayur
+            Discover Sacred Guruvayur
           </h1>
 
           <p className="text-base sm:text-lg text-stone-200 max-w-3xl mx-auto leading-relaxed mb-8">
