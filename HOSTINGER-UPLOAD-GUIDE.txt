@@ -1,0 +1,210 @@
+﻿================================================================================
+KRISHNENDU HOMESTAY — HOSTINGER HOSTING DEPLOYMENT GUIDE
+Website: Krishnendu Homestay (Guruvayur, Kerala)
+Package: krishnendu-homestay-hostinger.zip
+Folder: hostinger-public_html/
+================================================================================
+
+TABLE OF CONTENTS
+1. ARCHITECTURE & HOSTING REQUIREMENTS
+2. DELIVERABLES INCLUDED
+3. FASTEST DEPLOYMENT METHOD (hPanel File Manager)
+4. ALTERNATIVE DEPLOYMENT METHOD (FTP / FileZilla)
+5. THE CRUCIAL .htaccess FILE & ROUTING EXPLANATION
+6. DOMAIN & SSL CONFIGURATION
+7. SITEMAP & ROBOTS.TXT CUSTOMIZATION
+8. TESTING & POST-LAUNCH CHECKLIST
+
+--------------------------------------------------------------------------------
+1. ARCHITECTURE & HOSTING REQUIREMENTS
+--------------------------------------------------------------------------------
+* STATIC VS BACKEND:
+  The KRISHNENDU HOMESTAY website is a 100% client-side React Single Page 
+  Application (SPA). It DOES NOT require:
+  - No Node.js runtime or server daemon
+  - No Python/PHP backend
+  - No SQL/MongoDB database
+  
+* THIRD-PARTY INTEGRATIONS:
+  All booking and communication features run directly on client APIs:
+  - WhatsApp Enquiries: opens WhatsApp Web / App directly with prefilled booking 
+    details to either +91 9447995083 or +91 9744971680.
+  - Phone Calls: tel: links dial directly on mobile devices.
+  - Directions: Google Maps links with exact coordinates.
+  - Digital Card: direct link to official VKard.
+
+* HOSTINGER PLAN COMPATIBILITY:
+  Compatible with ALL Hostinger plans, including:
+  - Single Web Hosting
+  - Premium Web Hosting
+  - Business Web Hosting
+  - Cloud Hosting / VPS
+
+--------------------------------------------------------------------------------
+2. DELIVERABLES INCLUDED
+--------------------------------------------------------------------------------
+You have two ready-to-use deliverables in this project:
+
+1. `krishnendu-homestay-hostinger.zip` (14.5 MB)
+   A pre-packaged archive configured with Linux-standard forward slashes.
+   Contains the complete production build, ready to upload and extract in Hostinger.
+
+2. `hostinger-public_html/` folder
+   A standalone unpacked copy of the production website containing all 52 files:
+   - index.html (Main website entry point)
+   - .htaccess (Apache & LiteSpeed SPA routing, compression, and caching rules)
+   - robots.txt (Search engine crawler instructions)
+   - sitemap.xml (Pre-built XML sitemap for all pages and properties)
+   - favicon.ico, favicon.png, favicon-32x32.png, favicon.svg
+   - assets/ (Bundled CSS and JavaScript chunks)
+   - images/ (All high-resolution property photos, logos, attractions, and transit)
+
+--------------------------------------------------------------------------------
+3. FASTEST DEPLOYMENT METHOD (Hostinger hPanel File Manager)
+--------------------------------------------------------------------------------
+Follow these simple steps:
+
+STEP 1: Log in to Hostinger hPanel
+  - Go to https://hpanel.hostinger.com and log in with your credentials.
+
+STEP 2: Open File Manager
+  - Go to "Websites" in the top navigation.
+  - Click "Manage" next to your domain name.
+  - In the left sidebar or under the "Files" section, click "File Manager".
+  - Choose "Access files of [your domain]".
+
+STEP 3: Navigate to public_html
+  - Double-click to open the `public_html` folder.
+  - If you see a default Hostinger file (like `default.php`), delete it.
+
+STEP 4: Upload the ZIP File
+  - In the top-right toolbar of File Manager, click the "Upload" icon (arrow pointing up).
+  - Select "File" and choose `krishnendu-homestay-hostinger.zip` from your computer.
+  - Wait for the upload progress bar to reach 100%.
+
+STEP 5: Extract the ZIP
+  - Right-click `krishnendu-homestay-hostinger.zip` in File Manager.
+  - Select "Extract".
+  - When asked for folder destination, leave it blank or enter `.` (dot) to extract 
+    directly into `public_html`.
+  - Click "Extract".
+
+STEP 6: Verify File Placement
+  - Make sure `index.html` and `.htaccess` are directly inside `public_html`!
+    (Path should be: public_html/index.html, NOT public_html/dist/index.html).
+  - If they were extracted into a subfolder, select all files inside that subfolder, 
+    click "Move", and select `public_html` as destination.
+
+STEP 7: Clean Up
+  - Delete `krishnendu-homestay-hostinger.zip` from File Manager to save disk space.
+
+--------------------------------------------------------------------------------
+4. ALTERNATIVE DEPLOYMENT METHOD (FTP / FileZilla)
+--------------------------------------------------------------------------------
+If you prefer using FTP:
+
+1. In Hostinger hPanel, go to "Files" -> "FTP Accounts" to find your:
+   - FTP Host / Server IP
+   - FTP Username
+   - FTP Password
+   - Port (usually 21)
+2. Open FileZilla (or your preferred FTP client) and connect.
+3. On the right side (Remote site), open `/public_html`.
+4. On the left side (Local site), open the `hostinger-public_html` folder on your PC.
+5. Select all files and folders inside `hostinger-public_html` and drag them into 
+   `public_html`.
+6. Wait for all files to transfer successfully.
+
+--------------------------------------------------------------------------------
+5. THE CRUCIAL .htaccess FILE & ROUTING EXPLANATION
+--------------------------------------------------------------------------------
+WHY .htaccess IS INCLUDED:
+Because this website uses client-side routing (React Router), URLs look like:
+  - https://yourdomain.com/properties
+  - https://yourdomain.com/properties/krishnendu-homestay
+  - https://yourdomain.com/properties/krishnendhu-residency
+  - https://yourdomain.com/properties/sivaranjini-tourist-home
+  - https://yourdomain.com/discover-guruvayur
+  - https://yourdomain.com/about
+  - https://yourdomain.com/gallery
+  - https://yourdomain.com/contact
+
+When a visitor refreshes any of these sub-pages or clicks a direct link, standard 
+web servers (Apache / LiteSpeed) look for physical folders on the disk. Without 
+our `.htaccess` file, the server would return a "404 Not Found" error.
+
+Our pre-configured `.htaccess` file tells the server:
+"If the visitor requests a URL that is not an actual image or file, serve index.html 
+and let React Router display the correct page smoothly."
+
+NOTE ABOUT HIDDEN FILES:
+Files starting with a dot (like `.htaccess`) are considered hidden in Linux.
+If you do not see `.htaccess` in Hostinger File Manager:
+- Click the Settings (gear icon) in the top-right corner of File Manager.
+- Check "Show hidden files (dotfiles)".
+- Click Save.
+
+--------------------------------------------------------------------------------
+6. DOMAIN & SSL CONFIGURATION
+--------------------------------------------------------------------------------
+1. Pointing your Domain:
+   - If your domain is registered with Hostinger, it is connected automatically.
+   - If your domain is registered with GoDaddy, Namecheap, Google Domains, etc.:
+     Point your domain's Nameservers to Hostinger:
+     NS1: ns1.dns-parking.com
+     NS2: ns2.dns-parking.com
+     (Or use the Hostinger A Record IP shown in your hPanel dashboard).
+
+2. Activating Free SSL (HTTPS):
+   - In Hostinger hPanel, go to "Security" -> "SSL".
+   - Click "Install SSL" on your domain.
+   - Go to "Websites" -> "Dashboard" -> toggle ON "Force HTTPS".
+   - This ensures all visitors automatically browse securely over https://.
+
+--------------------------------------------------------------------------------
+7. SITEMAP & ROBOTS.TXT CUSTOMIZATION
+--------------------------------------------------------------------------------
+In the root of the website package, we have included:
+- `robots.txt`
+- `sitemap.xml`
+
+Both files contain the placeholder `YOUR_DOMAIN.COM`.
+Once your official domain is connected (for example: `krishnendhuhomestay.com`):
+1. Open `sitemap.xml` in Hostinger File Manager (Right-click -> Edit).
+2. Use Find & Replace to replace `YOUR_DOMAIN.COM` with your actual domain name 
+   (e.g., `krishnendhuhomestay.com`).
+3. Open `robots.txt` and replace `YOUR_DOMAIN.COM` with your actual domain name.
+4. Save both files.
+5. (Optional) Submit `https://yourdomain.com/sitemap.xml` to Google Search Console 
+   for indexing.
+
+--------------------------------------------------------------------------------
+8. TESTING & POST-LAUNCH CHECKLIST
+--------------------------------------------------------------------------------
+After uploading, test your website:
+[ ] Open your domain homepage (https://yourdomain.com) -> Verify hero, logo, and 
+    the 3 property cards load.
+[ ] Click "Our Properties" -> Confirm all 3 properties display with photos.
+[ ] Open "KRISHNENDU HOMESTAY" dedicated page -> Refresh the page in your browser -> 
+    Ensure it does NOT 404 and loads instantly.
+[ ] Open "Krishnendhu Residency" dedicated page -> Check all 12 photos in gallery -> 
+    Test click-to-enlarge Lightbox -> Refresh page.
+[ ] Open "Sivaranjini Tourist Home" dedicated page -> Check all 7 photos in gallery -> 
+    Test Lightbox -> Refresh page.
+[ ] Test the WhatsApp Enquiry Form: fill in test details -> click "Send Enquiry on 
+    WhatsApp" -> verify WhatsApp opens with prefilled details.
+[ ] Test the circular floating WhatsApp button in the bottom right corner -> 
+    verify it opens WhatsApp directly.
+[ ] Test on both Mobile and Desktop browsers.
+
+--------------------------------------------------------------------------------
+CONTACT & BRAND DETAILS CONFIGURED
+--------------------------------------------------------------------------------
+Property 1: KRISHNENDU HOMESTAY (North Nada, Guruvayur)
+Property 2: Krishnendhu Residency (Edappully Road, South Nada, Guruvayur)
+Property 3: Sivaranjini Tourist Home (East Rugmini Reagency Road, East Nada, Guruvayur)
+Primary Line: +91 9447995083
+Secondary Line: +91 9744971680
+Email: Krishnendhuhomestay@gmail.com
+Digital Card: https://www.vkard.pro/krishnendu-homestay
+================================================================================
