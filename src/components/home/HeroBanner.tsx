@@ -25,7 +25,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onOpenWhatsApp }) => {
       </div>
 
       {/* Hero Content Area */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 sm:pt-36 md:pt-44 pb-16 sm:pb-22">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 sm:pt-28 pb-16 sm:pb-22">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight mb-4 sm:mb-5 max-w-4xl mx-auto drop-shadow-md">
           Your Peaceful Stay in Sacred Guruvayur
         </h1>

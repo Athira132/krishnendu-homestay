@@ -31,7 +31,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenWhatsApp }) => {
   };
 
   return (
-    <div className="pt-32 sm:pt-36 md:pt-40 pb-20 bg-ivory min-h-screen">
+    <div className="pt-24 pb-20 bg-ivory min-h-screen">
       <SEOHead
         title="About Us | Peaceful Homestay & Hospitality in Guruvayur"
         description="Discover the story of Krishnendu Homestay in North Nada, Guruvayur. Providing pilgrims and visiting families with peaceful rooms, clean amenities, and warm Kerala hospitality."

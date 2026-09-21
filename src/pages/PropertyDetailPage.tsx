@@ -104,7 +104,7 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
   };
 
   return (
-    <div className="pt-28 sm:pt-32 md:pt-36 pb-20 bg-ivory min-h-screen">
+    <div className="pt-24 pb-20 bg-ivory min-h-screen">
       <SEOHead
         title={propertySeoData.title}
         description={propertySeoData.description}

@@ -23,7 +23,7 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
   onOpenWhatsApp,
 }) => {
   return (
-    <div className="pt-32 sm:pt-36 md:pt-40 pb-20 bg-ivory min-h-screen">
+    <div className="pt-24 pb-20 bg-ivory min-h-screen">
       <SEOHead
         title="Discover Guruvayur | Sacred Temples, Attractions & Travel Guide"
         description="Plan your temple pilgrimage in Guruvayur: Guruvayur Sri Krishna Temple darshan, Mammiyoor Mahadeva Temple, Punnathur Kotta elephant sanctuary, and nearby travel attractions."
