@@ -50,7 +50,7 @@ export const ExploreGuruvayurPage: React.FC<ExploreGuruvayurPageProps> = ({
             <span>SACRED PLACES, SPIRITUAL JOURNEYS & LOCAL EXPERIENCES</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 drop-shadow-md">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 drop-shadow-md">
             Discover Guruvayur
           </h1>
 

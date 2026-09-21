@@ -35,7 +35,7 @@ export const ContactPage: React.FC = () => {
             <span>DIRECT CONNECTIVITY</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">
             Let's Plan Your Stay
           </h1>
 

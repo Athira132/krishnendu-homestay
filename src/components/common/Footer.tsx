@@ -17,8 +17,8 @@ export const Footer: React.FC<FooterProps> = () => {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
-          {/* Left Column: Brand & Heritage */}
-          <div className="lg:col-span-5 space-y-5">
+          {/* Col 1: Brand & Heritage */}
+          <div className="lg:col-span-4 space-y-5">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
               <img
                 src={BRAND.logoUrl}
@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = () => {
                 className="h-12 sm:h-14 md:h-16 w-auto object-contain"
               />
               <div className="border-l-0 sm:border-l sm:border-emerald-800/60 sm:pl-3.5">
-                <h3 className="font-serif text-lg sm:text-xl font-bold tracking-wide text-white">
+                <h3 className="text-lg sm:text-xl font-bold tracking-wide text-white">
                   {BRAND.name}
                 </h3>
                 <p className="text-xs uppercase tracking-widest text-emerald-400">
@@ -66,12 +66,12 @@ export const Footer: React.FC<FooterProps> = () => {
             </div>
           </div>
 
-          {/* Middle Column: Quick Navigation Links */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-serif text-lg font-semibold text-white tracking-wide border-b border-emerald-900/60 pb-2">
+          {/* Col 2: Quick Links */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="text-base font-bold text-white tracking-wide border-b border-emerald-900/60 pb-2">
               Quick Links
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link to="/" className="text-stone-300 hover:text-emerald-300 transition-colors">
                   Home
@@ -99,15 +99,51 @@ export const Footer: React.FC<FooterProps> = () => {
               </li>
               <li>
                 <Link to="/contact" className="text-stone-300 hover:text-emerald-300 transition-colors">
-                  Contact & Location
+                  Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Right Column: Direct Contact & Enquiries */}
-          <div className="lg:col-span-4 space-y-4">
-            <h4 className="font-serif text-lg font-semibold text-white tracking-wide border-b border-emerald-900/60 pb-2">
+          {/* Col 3: Our Properties */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-base font-bold text-white tracking-wide border-b border-emerald-900/60 pb-2">
+              Our Properties
+            </h4>
+            <ul className="space-y-3 text-xs sm:text-sm">
+              <li>
+                <Link
+                  to="/properties/krishnendu-homestay"
+                  className="text-stone-300 hover:text-emerald-300 transition-colors block"
+                >
+                  <div className="font-semibold text-white">KRISHNENDU HOMESTAY</div>
+                  <div className="text-[11px] text-emerald-400">North Nada, Guruvayur</div>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/properties/krishnendhu-residency"
+                  className="text-stone-300 hover:text-emerald-300 transition-colors block"
+                >
+                  <div className="font-semibold text-white">Krishnendhu Residency</div>
+                  <div className="text-[11px] text-emerald-400">Edappully Road, South Nada</div>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/properties/sivaranjini-tourist-home"
+                  className="text-stone-300 hover:text-emerald-300 transition-colors block"
+                >
+                  <div className="font-semibold text-white">Sivaranjini Tourist Home</div>
+                  <div className="text-[11px] text-emerald-400">Rugmini Reagency Rd, East Nada</div>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Direct Contact & Enquiries */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-base font-bold text-white tracking-wide border-b border-emerald-900/60 pb-2">
               Direct Contact
             </h4>
             <div className="space-y-3.5 text-xs">

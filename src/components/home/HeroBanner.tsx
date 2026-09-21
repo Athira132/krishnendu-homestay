@@ -28,10 +28,10 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onOpenWhatsApp }) => {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-20 sm:pb-24">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-widest uppercase text-emerald-200 mb-5 animate-in fade-in slide-in-from-top-4 duration-700">
           <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-          <span>WELCOME TO KRISHNENDU HOMESTAY</span>
+          <span>SERENE TEMPLE HOSPITALITY</span>
         </div>
 
-        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight mb-5 max-w-4xl mx-auto drop-shadow-md">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight mb-5 max-w-4xl mx-auto drop-shadow-md">
           Your Peaceful Stay in Sacred Guruvayur
         </h1>
 

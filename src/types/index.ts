@@ -9,24 +9,30 @@ export interface Property {
   fullDescription: string[];
   heroImage: string;
   galleryImages: string[];
-  isFeatured: boolean;
-  isComingSoon: boolean;
-  statusBadge: string;
+  isFeatured?: boolean;
+  isComingSoon?: boolean;
+  statusBadge?: string;
   highlights: string[];
-  confirmedAmenities: {
+  confirmedAmenities?: {
     icon: string;
     title: string;
     description: string;
   }[];
-  roomTypes: {
+  roomTypes?: {
     name: string;
     description: string;
     capacity: string;
     bedType: string;
     statusNote: string;
   }[];
-  guidelines: string[];
+  guidelines?: string[];
   locationNote: string;
+  googleMapsUrl?: string;
+  nearbyAttractions?: {
+    name: string;
+    distance: string;
+    travelTime: string;
+  }[];
 }
 
 export interface Attraction {

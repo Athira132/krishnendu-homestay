@@ -60,7 +60,7 @@ export const GalleryPage: React.FC = () => {
             <span>VISUAL PORTFOLIO</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4">
             Property Photo Gallery
           </h1>
 

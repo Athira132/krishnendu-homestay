@@ -7,6 +7,9 @@ import {
   Info,
   Phone,
   Eye,
+  Clock,
+  Compass,
+  ExternalLink,
 } from 'lucide-react';
 import { PROPERTIES } from '../data/properties';
 import { BRAND } from '../data/brand';
@@ -58,54 +61,86 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
         description={`${property.name} in Guruvayur, Kerala. ${property.shortDescription}`}
       />
 
-      {/* Property Hero Banner */}
-      <div className="relative min-h-[50vh] sm:min-h-[60vh] flex items-end pb-12 pt-20 bg-forest-950 text-white overflow-hidden">
+      {/* Compact Photographic Hero Banner (No Property Name Overlaid) */}
+      <div className="relative h-[36vh] sm:h-[42vh] flex items-end bg-forest-950 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={property.heroImage}
-            alt={property.name}
+            alt={`${property.name} Exterior View`}
             className="w-full h-full object-cover"
             onError={(e) => {
               (e.target as HTMLImageElement).src =
                 'https://i.ibb.co/RGGM36Cm/905c3c9d-34ba-4172-96bd-c13d6149d598-1.jpg';
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/60 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/40 to-black/30" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-2.5 mb-3">
-              <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-700 text-white shadow">
-                {property.statusBadge}
-              </span>
-              <span className="px-3.5 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-md text-stone-200">
-                {property.tagLine}
-              </span>
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-3">
-              {property.name}
-            </h1>
-
-            <div className="flex items-center gap-2 text-stone-300 text-xs sm:text-sm">
-              <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-              <span>{property.location}</span>
-              <span className="opacity-40">•</span>
-              <span className="text-emerald-300">{property.landmark}</span>
-            </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs font-semibold tracking-wider text-emerald-200 uppercase">
+            <span>KRISHNENDU HOSPITALITY COLLECTION</span>
           </div>
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
+        {/* Breadcrumbs & Property Header Section Below Hero */}
+        <div className="mb-8 pb-6 border-b border-stone-200">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-xs text-stone-500 mb-3">
+            <Link to="/" className="hover:text-forest-800 transition-colors">Home</Link>
+            <span>/</span>
+            <Link to="/properties" className="hover:text-forest-800 transition-colors">Our Properties</Link>
+            <span>/</span>
+            <span className="text-forest-900 font-semibold">{property.name}</span>
+          </nav>
+
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-700 text-white shadow-sm">
+                  {property.statusBadge || 'Direct Booking Available'}
+                </span>
+                <span className="px-3 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/60">
+                  {property.tagLine}
+                </span>
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-forest-950 tracking-tight mb-2">
+                {property.name}
+              </h1>
+
+              <div className="flex flex-wrap items-center gap-2 text-stone-600 text-xs sm:text-sm">
+                <div className="flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span className="font-medium text-forest-900">{property.location}</span>
+                </div>
+                <span className="opacity-40 hidden sm:inline">•</span>
+                <span className="text-emerald-800 font-medium">{property.landmark}</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <a
+                href={property.googleMapsUrl || BRAND.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-stone-300 hover:border-emerald-600 bg-white text-forest-900 text-xs font-semibold transition-all shadow-sm"
+              >
+                <MapPin className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Left Column */}
-          <div className="lg:col-span-8 space-y-12">
+          <div className="lg:col-span-8 space-y-10">
             {/* Overview & Description */}
             <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
-              <h2 className="font-serif text-2xl font-bold text-forest-950 mb-4 pb-2 border-b border-stone-100">
+              <h2 className="text-2xl font-bold text-forest-950 mb-4 pb-2 border-b border-stone-100">
                 About the Property
               </h2>
               <div className="space-y-4 text-sm sm:text-base text-stone-700 leading-relaxed">
@@ -136,11 +171,11 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
             <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h2 className="font-serif text-2xl font-bold text-forest-950">
+                  <h2 className="text-2xl font-bold text-forest-950">
                     Property Photo Gallery
                   </h2>
                   <p className="text-xs sm:text-sm text-stone-500">
-                    Click on any image to view in high resolution
+                    Showing {propertyGallery.length} verified photos. Click on any image to enlarge.
                   </p>
                 </div>
                 <button
@@ -179,99 +214,176 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
             </div>
 
             {/* Confirmed Amenities */}
+            {property.confirmedAmenities && property.confirmedAmenities.length > 0 && (
+              <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
+                <div className="mb-6">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">
+                    VERIFIED COMFORTS
+                  </span>
+                  <h2 className="text-2xl font-bold text-forest-950 mt-2">
+                    Confirmed Amenities & Facilities
+                  </h2>
+                  <p className="text-xs text-stone-500 mt-1">
+                    We show only verified amenities available at our homestay.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {property.confirmedAmenities.map((amenity, i) => (
+                    <div
+                      key={i}
+                      className="p-4 rounded-2xl bg-stone-50 border border-stone-200/70 flex items-start gap-3.5"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-4 h-4 stroke-[2.5]" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-forest-950">
+                          {amenity.title}
+                        </h4>
+                        <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
+                          {amenity.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Available Room Types */}
+            {property.roomTypes && property.roomTypes.length > 0 && (
+              <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
+                <div className="mb-6">
+                  <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-3 py-1 rounded-full">
+                    ROOM CONFIGURATIONS
+                  </span>
+                  <h2 className="text-2xl font-bold text-forest-950 mt-2">
+                    Available Room Options
+                  </h2>
+                  <p className="text-xs text-stone-500 mt-1">
+                    Room tariffs and exact configurations are confirmed upon WhatsApp enquiry.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {property.roomTypes.map((room, i) => (
+                    <div
+                      key={i}
+                      className="p-5 rounded-2xl border border-stone-200 bg-white hover:border-emerald-300 transition-colors"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <h3 className="text-lg font-bold text-forest-950">
+                          {room.name}
+                        </h3>
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-stone-100 text-stone-700 w-fit">
+                          {room.capacity}
+                        </span>
+                      </div>
+
+                      <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-3">
+                        {room.description}
+                      </p>
+
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-stone-100 text-xs text-stone-500">
+                        <span>Bed Configuration: <strong>{room.bedType}</strong></span>
+                        <span className="text-emerald-700 font-medium italic">{room.statusNote}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Location & Directions */}
             <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
               <div className="mb-6">
                 <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">
-                  VERIFIED COMFORTS
+                  LOCATION & MAP
                 </span>
-                <h2 className="font-serif text-2xl font-bold text-forest-950 mt-2">
-                  Confirmed Amenities & Facilities
+                <h2 className="text-2xl font-bold text-forest-950 mt-2">
+                  Address & Location Details
                 </h2>
                 <p className="text-xs text-stone-500 mt-1">
-                  We show only verified amenities available at our homestay.
+                  Convenient proximity to Guruvayur Sri Krishna Temple and local transit.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {property.confirmedAmenities.map((amenity, i) => (
-                  <div
-                    key={i}
-                    className="p-4 rounded-2xl bg-stone-50 border border-stone-200/70 flex items-start gap-3.5"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-4 h-4 stroke-[2.5]" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-forest-950">
-                        {amenity.title}
-                      </h4>
-                      <p className="text-xs text-stone-600 mt-0.5 leading-relaxed">
-                        {amenity.description}
-                      </p>
-                    </div>
+              <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200 mb-5">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-bold text-forest-950">{property.name}</h3>
+                    <p className="text-xs sm:text-sm text-stone-700">{property.location}</p>
+                    <p className="text-xs text-emerald-800 font-medium">{property.landmark}</p>
+                    <p className="text-xs text-stone-500 pt-1">{property.locationNote}</p>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
 
-            {/* Available Room Types (Editable Placeholders) */}
-            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
-              <div className="mb-6">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-3 py-1 rounded-full">
-                  ROOM CONFIGURATIONS
-                </span>
-                <h2 className="font-serif text-2xl font-bold text-forest-950 mt-2">
-                  Available Room Options
-                </h2>
-                <p className="text-xs text-stone-500 mt-1">
-                  Room tariffs and exact configurations will be confirmed upon WhatsApp enquiry.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {property.roomTypes.map((room, i) => (
-                  <div
-                    key={i}
-                    className="p-5 rounded-2xl border border-stone-200 bg-white hover:border-emerald-300 transition-colors"
+                <div className="mt-4 pt-3 border-t border-stone-200/80 flex items-center justify-between">
+                  <span className="text-xs text-stone-500">Need navigation assistance?</span>
+                  <a
+                    href={property.googleMapsUrl || BRAND.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition-colors"
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 className="font-serif text-lg font-bold text-forest-950">
-                        {room.name}
-                      </h3>
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-stone-100 text-stone-700 w-fit">
-                        {room.capacity}
-                      </span>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-3">
-                      {room.description}
-                    </p>
-
-                    <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-stone-100 text-xs text-stone-500">
-                      <span>Bed Configuration: <strong>{room.bedType}</strong></span>
-                      <span className="text-emerald-700 font-medium italic">{room.statusNote}</span>
-                    </div>
-                  </div>
-                ))}
+                    <span>Open in Google Maps</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
-            </div>
 
-            {/* Location & Directions Note */}
-            <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
-              <h2 className="font-serif text-2xl font-bold text-forest-950 mb-4">
-                Location & Accessibility
-              </h2>
-              <p className="text-sm text-stone-600 leading-relaxed mb-4">
-                {property.locationNote}
-              </p>
               <div className="p-4 rounded-2xl bg-forest-50 border border-forest-200/60 text-xs text-forest-900 leading-relaxed flex items-start gap-3">
                 <Info className="w-4 h-4 text-forest-700 flex-shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold">Devotee Notice: </span>
-                  Road distances and driving time may vary during temple festival seasons and Ekadasi celebrations. Our caretaker is happy to assist you with directions upon your arrival in Guruvayur.
+                  Road distances and walking times may vary during festival days and Ekadasi celebrations. Our caretaker is available on phone and WhatsApp to assist you with live arrival directions.
                 </div>
               </div>
             </div>
+
+            {/* Nearby Attractions with Walking & Driving Times */}
+            {property.nearbyAttractions && property.nearbyAttractions.length > 0 && (
+              <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EADBCE] shadow-sm">
+                <div className="mb-6">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full">
+                    TEMPLE & TRANSIT ACCESS
+                  </span>
+                  <h2 className="text-2xl font-bold text-forest-950 mt-2">
+                    Nearby Attractions & Landmarks
+                  </h2>
+                  <p className="text-xs text-stone-500 mt-1">
+                    Approximate walking and driving distances from {property.name}.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  {property.nearbyAttractions.map((attr, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 rounded-2xl bg-stone-50 border border-stone-200/80 flex items-center justify-between"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-forest-100 text-forest-800 flex items-center justify-center flex-shrink-0">
+                          <Compass className="w-4 h-4 text-emerald-700" />
+                        </div>
+                        <div>
+                          <h3 className="text-xs sm:text-sm font-semibold text-forest-950">
+                            {attr.name}
+                          </h3>
+                          <p className="text-[11px] text-stone-500">{attr.distance}</p>
+                        </div>
+                      </div>
+                      <span className="text-xs font-medium text-emerald-800 bg-emerald-100/70 px-2.5 py-1 rounded-full whitespace-nowrap flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-emerald-700" />
+                        <span>{attr.travelTime}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right Column: WhatsApp Enquiry Form */}
@@ -280,7 +392,7 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
               <WhatsAppEnquiryForm initialPropertySlug={property.slug} />
 
               <div className="mt-6 bg-forest-900 text-white rounded-3xl p-6 shadow-md border border-emerald-800">
-                <h3 className="font-serif text-lg font-bold mb-2">
+                <h3 className="text-lg font-bold mb-2">
                   Need Immediate Assistance?
                 </h3>
                 <p className="text-xs text-stone-300 leading-relaxed mb-4">
@@ -315,16 +427,16 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
           </div>
         </div>
 
-        {/* Other Properties You May Like */}
+        {/* Other Properties Under Krishnendu Brand */}
         {otherProperties.length > 0 && (
           <div className="mt-20 pt-12 border-t border-stone-200">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h3 className="font-serif text-2xl font-bold text-forest-950">
-                  Other Properties You May Like
+                <h3 className="text-2xl font-bold text-forest-950">
+                  Other Properties Under Krishnendu Brand
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-500">
-                  Explore other stays in our collection
+                  Explore other stay choices in our collection
                 </p>
               </div>
               <Link
@@ -336,28 +448,29 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {otherProperties.map((other) => (
                 <div
                   key={other.id}
-                  className="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                  className="bg-white rounded-3xl overflow-hidden border border-[#EADBCE] shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="aspect-video relative overflow-hidden bg-stone-100">
+                    <div className="aspect-[16/10] relative overflow-hidden bg-stone-100">
                       <img
                         src={other.heroImage}
                         alt={other.name}
                         className="w-full h-full object-cover"
                       />
-                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-stone-800 text-white">
-                        {other.statusBadge}
+                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium bg-forest-900/90 text-white">
+                        {other.tagLine}
                       </span>
                     </div>
-                    <div className="p-5">
-                      <span className="text-[11px] font-semibold text-emerald-700 uppercase tracking-wider block mb-1">
-                        {other.location}
-                      </span>
-                      <h4 className="font-serif text-lg font-bold text-forest-950 mb-2">
+                    <div className="p-6">
+                      <div className="flex items-center gap-1 text-xs font-medium text-emerald-800 mb-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>{other.location}</span>
+                      </div>
+                      <h4 className="text-xl font-bold text-forest-950 mb-2">
                         {other.name}
                       </h4>
                       <p className="text-xs text-stone-600 line-clamp-2">
@@ -366,7 +479,7 @@ export const PropertyDetailPage: React.FC<PropertyDetailPageProps> = () => {
                     </div>
                   </div>
 
-                  <div className="p-5 pt-0">
+                  <div className="p-6 pt-0">
                     <Link
                       to={`/properties/${other.slug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-forest-800 hover:text-forest-600"

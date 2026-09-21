@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MessageCircle, X, Send, PhoneCall } from 'lucide-react';
 import { BRAND, getWhatsAppLink } from '../../data/brand';
 
@@ -13,22 +13,11 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
   onClose: externalOnClose,
   defaultMessage,
 }) => {
-  const [internalIsOpen, setInternalIsOpen] = useState(false);
-  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+  const isOpen = Boolean(externalIsOpen);
 
   const handleClose = () => {
     if (externalOnClose) {
       externalOnClose();
-    } else {
-      setInternalIsOpen(false);
-    }
-  };
-
-  const toggleOpen = () => {
-    if (externalOnClose && externalIsOpen) {
-      externalOnClose();
-    } else {
-      setInternalIsOpen(!internalIsOpen);
     }
   };
 
@@ -124,10 +113,15 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
       {/* Main Floating Trigger Button (Round, Icon Only) */}
       <button
         type="button"
-        onClick={toggleOpen}
+        onClick={() =>
+          window.open(
+            getWhatsAppLink(BRAND.whatsAppNumbers[0].number, messageToSend),
+            '_blank'
+          )
+        }
         className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 group border-2 border-white focus:outline-none cursor-pointer"
         aria-label="Chat on WhatsApp"
-        title="Chat on WhatsApp"
+        title="Chat on WhatsApp (+91 94479 95083)"
       >
         <MessageCircle className="w-7 h-7 fill-current group-hover:rotate-12 transition-transform" />
       </button>

@@ -57,10 +57,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenWhatsApp }) => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-800/80 border border-emerald-600/40 text-xs font-semibold tracking-wider text-emerald-300 uppercase mb-4 backdrop-blur-sm">
               <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-              <span>KRISHNENDU HOMESTAY</span>
+              <span>OUR STORY & VALUES</span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4 leading-tight">
               A Homely Retreat in Guruvayur
             </h1>
 

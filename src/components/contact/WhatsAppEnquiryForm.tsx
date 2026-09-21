@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AlertCircle, MessageCircle, Users, Home } from 'lucide-react';
+import { AlertCircle, MessageCircle, Users, Home, BedDouble } from 'lucide-react';
 import { PROPERTIES } from '../../data/properties';
 import { BRAND, getWhatsAppLink } from '../../data/brand';
 
@@ -19,6 +19,7 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
   const [guests, setGuests] = useState('2 Guests');
+  const [rooms, setRooms] = useState('1 Room');
   const [message, setMessage] = useState('');
   const [selectedWhatsAppNumber, setSelectedWhatsAppNumber] = useState(
     BRAND.whatsAppNumbers[0].number
@@ -65,16 +66,17 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
 
     // Construct clean, formatted prefilled message for WhatsApp
     const enquiryText = [
-      `*Krishnendu Homestay Stay Enquiry*`,
+      `*Krishnendu Hospitality Stay Enquiry*`,
       `---------------------------------`,
+      `*Property:* ${selectedProperty}`,
       `*Guest Name:* ${fullName.trim()}`,
       `*Phone:* ${phone.trim()}`,
       email.trim() ? `*Email:* ${email.trim()}` : null,
-      `*Preferred Property:* ${selectedProperty}`,
       `*Check-in Date:* ${checkInDate}`,
       `*Check-out Date:* ${checkOutDate}`,
       `*Number of Guests:* ${guests}`,
-      message.trim() ? `*Additional Message:* ${message.trim()}` : null,
+      `*Rooms Needed:* ${rooms}`,
+      message.trim() ? `*Special Requests:* ${message.trim()}` : null,
       `---------------------------------`,
       `_Sent via Krishnendu Homestay Website_`,
     ]
@@ -88,20 +90,20 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
     setTimeout(() => {
       window.open(waUrl, '_blank');
       setIsRedirecting(false);
-    }, 400);
+    }, 300);
   };
 
   return (
     <div className="bg-white rounded-3xl shadow-xl shadow-stone-200/70 border border-[#EADBCE] p-6 sm:p-10">
       <div className="mb-8">
         <span className="text-xs font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-3.5 py-1 rounded-full">
-          DIRECT ENQUIRY FLOW
+          DIRECT WHATSAPP RESERVATION
         </span>
-        <h3 className="font-serif text-2xl sm:text-3xl font-bold text-forest-950 mt-3">
+        <h3 className="text-2xl sm:text-3xl font-bold text-forest-950 mt-3">
           Plan Your Stay with Us
         </h3>
         <p className="text-xs sm:text-sm text-stone-600 mt-1.5">
-          Submit your stay details below. Your prefilled booking enquiry will open directly in WhatsApp for prompt personal assistance.
+          Submit your stay details below. Your prefilled booking enquiry will open directly in WhatsApp for personal assistance.
         </p>
       </div>
 
@@ -168,7 +170,7 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
 
           <div>
             <label className="block text-xs font-semibold text-charcoal-700 uppercase tracking-wider mb-1.5">
-              Preferred Property *
+              Selected Property *
             </label>
             <div className="relative">
               <select
@@ -178,7 +180,7 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
               >
                 {PROPERTIES.map((prop) => (
                   <option key={prop.slug} value={prop.slug}>
-                    {prop.name} {prop.isComingSoon ? '(Coming Soon)' : ''}
+                    {prop.name} — {prop.location.split(',')[0]}
                   </option>
                 ))}
               </select>
@@ -187,8 +189,8 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
           </div>
         </div>
 
-        {/* Check-in, Check-out & Guests */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {/* Check-in, Check-out Dates */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-xs font-semibold text-charcoal-700 uppercase tracking-wider mb-1.5">
               Check-in Date *
@@ -232,10 +234,13 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
               </p>
             )}
           </div>
+        </div>
 
+        {/* Guests & Rooms Needed */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-xs font-semibold text-charcoal-700 uppercase tracking-wider mb-1.5">
-              Number of Guests
+              Number of Guests (Adults & Children) *
             </label>
             <div className="relative">
               <select
@@ -246,11 +251,30 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
                 <option value="1 Guest">1 Guest</option>
                 <option value="2 Guests">2 Guests (Couple / Pair)</option>
                 <option value="3 Guests">3 Guests</option>
-                <option value="4 Guests">4 Guests (Family Room)</option>
-                <option value="5-8 Guests">5–8 Guests (Large Family)</option>
-                <option value="9+ Guests Group">9+ Guests (Group / Full Villa)</option>
+                <option value="4 Guests">4 Guests (Family)</option>
+                <option value="5–8 Guests">5–8 Guests (Large Family)</option>
+                <option value="9+ Guests Group">9+ Guests (Group / Full Stay)</option>
               </select>
               <Users className="w-4 h-4 text-stone-400 absolute right-4 top-3.5 pointer-events-none" />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-charcoal-700 uppercase tracking-wider mb-1.5">
+              Number of Rooms Needed *
+            </label>
+            <div className="relative">
+              <select
+                value={rooms}
+                onChange={(e) => setRooms(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm bg-white focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 appearance-none"
+              >
+                <option value="1 Room">1 Room</option>
+                <option value="2 Rooms">2 Rooms</option>
+                <option value="3 Rooms">3 Rooms</option>
+                <option value="4+ Rooms / Whole House">4+ Rooms / Whole House</option>
+              </select>
+              <BedDouble className="w-4 h-4 text-stone-400 absolute right-4 top-3.5 pointer-events-none" />
             </div>
           </div>
         </div>
@@ -258,13 +282,13 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
         {/* Message / Special Needs */}
         <div>
           <label className="block text-xs font-semibold text-charcoal-700 uppercase tracking-wider mb-1.5">
-            Special Requests or Questions <span className="text-stone-400 normal-case font-normal">(Optional)</span>
+            Special Requests or Notes <span className="text-stone-400 normal-case font-normal">(Optional)</span>
           </label>
           <textarea
             rows={3}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="e.g. Arriving early morning for temple darshan, requiring parking space, elderly guest assistance, etc."
+            placeholder="e.g. Arriving early morning for temple darshan, requiring parking space, ground floor room for elderly guests, etc."
             className="w-full px-4 py-3 rounded-xl border border-stone-300 text-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           />
         </div>
@@ -272,32 +296,50 @@ export const WhatsAppEnquiryForm: React.FC<WhatsAppEnquiryFormProps> = ({
         {/* Select WhatsApp line */}
         <div className="pt-2">
           <label className="block text-xs font-semibold text-charcoal-700 uppercase tracking-wider mb-2">
-            Send To WhatsApp Line:
+            Send WhatsApp Enquiry To:
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {BRAND.whatsAppNumbers.map((wa) => (
-              <label
-                key={wa.number}
-                className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
-                  selectedWhatsAppNumber === wa.number
-                    ? 'border-emerald-600 bg-emerald-50/50 text-forest-900 font-medium'
-                    : 'border-stone-200 hover:border-stone-300 text-stone-600'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="whatsappNumber"
-                  value={wa.number}
-                  checked={selectedWhatsAppNumber === wa.number}
-                  onChange={() => setSelectedWhatsAppNumber(wa.number)}
-                  className="text-emerald-600 focus:ring-emerald-500"
-                />
-                <div className="text-xs">
-                  <div className="font-semibold">{wa.label}</div>
-                  <div className="font-mono text-stone-500">{wa.display}</div>
-                </div>
-              </label>
-            ))}
+            <label
+              className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+                selectedWhatsAppNumber === BRAND.whatsAppNumbers[0].number
+                  ? 'border-emerald-600 bg-emerald-50/60 text-forest-900 font-medium'
+                  : 'border-stone-200 hover:border-stone-300 text-stone-600'
+              }`}
+            >
+              <input
+                type="radio"
+                name="whatsappNumber"
+                value={BRAND.whatsAppNumbers[0].number}
+                checked={selectedWhatsAppNumber === BRAND.whatsAppNumbers[0].number}
+                onChange={() => setSelectedWhatsAppNumber(BRAND.whatsAppNumbers[0].number)}
+                className="text-emerald-600 focus:ring-emerald-500"
+              />
+              <div className="text-xs">
+                <div className="font-semibold text-forest-950">Primary Line: +91 9447995083</div>
+                <div className="text-stone-500">Quick response for bookings & darshan info</div>
+              </div>
+            </label>
+
+            <label
+              className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+                selectedWhatsAppNumber === BRAND.whatsAppNumbers[1].number
+                  ? 'border-emerald-600 bg-emerald-50/60 text-forest-900 font-medium'
+                  : 'border-stone-200 hover:border-stone-300 text-stone-600'
+              }`}
+            >
+              <input
+                type="radio"
+                name="whatsappNumber"
+                value={BRAND.whatsAppNumbers[1].number}
+                checked={selectedWhatsAppNumber === BRAND.whatsAppNumbers[1].number}
+                onChange={() => setSelectedWhatsAppNumber(BRAND.whatsAppNumbers[1].number)}
+                className="text-emerald-600 focus:ring-emerald-500"
+              />
+              <div className="text-xs">
+                <div className="font-semibold text-forest-950">Secondary Line: +91 9744971680</div>
+                <div className="text-stone-500">Alternative line for reservations & support</div>
+              </div>
+            </label>
           </div>
         </div>
 
