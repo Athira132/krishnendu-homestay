@@ -19,14 +19,14 @@ export const Footer: React.FC<FooterProps> = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Left Column: Brand & Heritage */}
           <div className="lg:col-span-5 space-y-5">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
               <img
                 src={BRAND.logoUrl}
                 alt={BRAND.name}
-                className="h-12 sm:h-14 w-auto object-contain"
+                className="h-12 sm:h-14 md:h-16 w-auto object-contain"
               />
-              <div>
-                <h3 className="font-serif text-xl font-bold tracking-wide text-white">
+              <div className="border-l-0 sm:border-l sm:border-emerald-800/60 sm:pl-3.5">
+                <h3 className="font-serif text-lg sm:text-xl font-bold tracking-wide text-white">
                   {BRAND.name}
                 </h3>
                 <p className="text-xs uppercase tracking-widest text-emerald-400">

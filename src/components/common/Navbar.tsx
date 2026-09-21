@@ -72,20 +72,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenWhatsApp }) => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBackgroundClass}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 group focus:outline-none">
+          <Link to="/" className="flex items-center gap-3 group focus:outline-none" title={BRAND.name}>
             <img
               src={BRAND.logoUrl}
               alt={BRAND.name}
-              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+              className="h-11 sm:h-13 md:h-15 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
             />
-            <div className="flex flex-col">
-              <span className={`font-serif text-lg sm:text-xl font-bold tracking-wide transition-colors ${!isScrolled && isHeroPage ? 'text-white' : 'text-forest-900'}`}>
+            <div className="hidden xl:flex flex-col">
+              <span className={`font-serif text-base lg:text-lg font-bold tracking-wide transition-colors ${!isScrolled && isHeroPage ? 'text-white' : 'text-forest-900'}`}>
                 {BRAND.name}
               </span>
-              <span className={`text-[11px] uppercase tracking-widest font-medium ${!isScrolled && isHeroPage ? 'text-emerald-200' : 'text-forest-700'}`}>
+              <span className={`text-[10px] uppercase tracking-widest font-medium ${!isScrolled && isHeroPage ? 'text-emerald-200' : 'text-forest-700'}`}>
                 Guruvayur, Kerala
               </span>
             </div>
