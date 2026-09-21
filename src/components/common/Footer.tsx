@@ -18,13 +18,13 @@ export const Footer: React.FC<FooterProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Col 1: Brand & Heritage */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-4 space-y-4 sm:space-y-5">
             <div className="flex items-center">
-              <Link to="/" className="inline-block focus:outline-none" title="Return to Home">
+              <Link to="/" className="inline-block focus:outline-none" title="Krishnendu Homestay">
                 <img
                   src={BRAND.logoUrl}
-                  alt="Guruvayur Homestay Logo"
-                  className="h-14 sm:h-16 md:h-18 w-auto object-contain"
+                  alt="Krishnendu Homestay Logo"
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain drop-shadow-sm"
                 />
               </Link>
             </div>
@@ -99,10 +99,10 @@ export const Footer: React.FC<FooterProps> = () => {
             </ul>
           </div>
 
-          {/* Col 3: Accommodations by Location */}
+          {/* Col 3: Our Properties */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-base font-bold text-white tracking-wide border-b border-emerald-900/60 pb-2">
-              Accommodations
+              Our Properties
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm">
               <li>
@@ -110,8 +110,8 @@ export const Footer: React.FC<FooterProps> = () => {
                   to="/properties/krishnendu-homestay"
                   className="text-stone-300 hover:text-emerald-300 transition-colors block"
                 >
-                  <div className="font-semibold text-white">North Nada Stay</div>
-                  <div className="text-[11px] text-emerald-400">Temple Proximity & Quiet Atmosphere</div>
+                  <div className="font-semibold text-white">KRISHNENDU HOMESTAY</div>
+                  <div className="text-[11px] text-emerald-400">North Nada, Guruvayur</div>
                 </Link>
               </li>
               <li>
@@ -119,8 +119,8 @@ export const Footer: React.FC<FooterProps> = () => {
                   to="/properties/krishnendhu-residency"
                   className="text-stone-300 hover:text-emerald-300 transition-colors block"
                 >
-                  <div className="font-semibold text-white">South Nada Stay</div>
-                  <div className="text-[11px] text-emerald-400">Edappully Road, Peaceful Pilgrimage</div>
+                  <div className="font-semibold text-white">Krishnendhu Residency</div>
+                  <div className="text-[11px] text-emerald-400">Edappully Road, South Nada</div>
                 </Link>
               </li>
               <li>
@@ -128,17 +128,8 @@ export const Footer: React.FC<FooterProps> = () => {
                   to="/properties/sivaranjini-tourist-home"
                   className="text-stone-300 hover:text-emerald-300 transition-colors block"
                 >
-                  <div className="font-semibold text-white">East Nada Stay</div>
-                  <div className="text-[11px] text-emerald-400">Rugmini Reagency Rd, Transit Convenience</div>
-                </Link>
-              </li>
-              <li className="pt-1">
-                <Link
-                  to="/properties"
-                  className="text-xs text-emerald-400 hover:text-emerald-300 font-medium transition-colors inline-flex items-center gap-1"
-                >
-                  <span>Explore All Accommodations</span>
-                  <span>→</span>
+                  <div className="font-semibold text-white">Sivaranjini Tourist Home</div>
+                  <div className="text-[11px] text-emerald-400">Rugmini Reagency Rd, East Nada</div>
                 </Link>
               </li>
             </ul>
@@ -204,7 +195,7 @@ export const Footer: React.FC<FooterProps> = () => {
 
         {/* Bottom Bar with Copyright */}
         <div className="mt-12 pt-8 border-t border-emerald-900/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
-          <p>© {BRAND.copyrightYear}. All rights reserved.</p>
+          <p>© {BRAND.copyrightYear} {BRAND.name}. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link to="/about" className="hover:text-stone-200 transition-colors">
               About
